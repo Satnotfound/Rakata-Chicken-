@@ -1,6 +1,5 @@
 import { Flame, Sparkles, Tag, UtensilsCrossed } from 'lucide-react';
-import { ABOUT_IMAGE } from '../data/menuData';
-import { FoodImage } from './FoodImage';
+import { FramedLabel, NusantaraCloudsSvg } from './BrandElements';
 
 const HIGHLIGHTS = [
   {
@@ -29,63 +28,58 @@ const HIGHLIGHTS = [
 
 export function About() {
   return (
-    <section id="about" className="bg-[#FFF8EA] text-[#42201D] py-16 sm:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-stretch">
-          {/* Left Image */}
-          <div className="lg:col-span-5 flex">
-            <div className="w-full rounded-2xl overflow-hidden bg-white shadow-md min-h-[280px] lg:min-h-full">
-              <FoodImage
-                src={ABOUT_IMAGE}
-                alt="Penyajian ayam gunting, kentang goreng, dan aneka bumbu tabur khas Nusantara RAKATA"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+    <section
+      id="about"
+      className="relative bg-[#FFFFFF] text-[#000000] py-14 sm:py-20 overflow-hidden"
+    >
+      <div
+        className="pointer-events-none absolute top-6 right-6 opacity-40 hidden md:block"
+        aria-hidden="true"
+      >
+        <NusantaraCloudsSvg className="w-36 h-28" strokeColor="#E3BD32" />
+      </div>
 
-          {/* Right Narrative & Highlights */}
-          <div className="lg:col-span-7 flex flex-col justify-center space-y-6">
-            <div className="space-y-3">
-              <p className="text-xs font-bold tracking-[0.16em] uppercase text-[#781B19]">
-                About Us · RAKATA
-              </p>
-              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#42201D] [text-wrap:balance]">
-                Get to Know RAKATA
-              </h2>
-              <p className="text-base leading-relaxed text-[#42201D]/85">
-                RAKATA merupakan UMKM kuliner yang menghadirkan pilihan makanan
-                berbahan dasar ayam dan kentang dengan cita rasa lezat, praktis,
-                dan terjangkau. Melalui berbagai pilihan topping khas Nusantara,
-                varian rasa modern, serta saus favorit, RAKATA ingin memberikan
-                pengalaman menikmati makanan yang menyenangkan bagi setiap
-                pelanggan.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-              {HIGHLIGHTS.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <div
-                    key={item.title}
-                    className="bg-white rounded-xl p-5 shadow-sm border border-[#42201D]/8"
-                  >
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="w-9 h-9 rounded-lg bg-[#FFF8EA] text-[#781B19] flex items-center justify-center shrink-0">
-                        <Icon className="w-4 h-4" aria-hidden="true" />
-                      </span>
-                      <h3 className="font-display text-base font-bold text-[#42201D]">
-                        {item.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm leading-relaxed text-[#42201D]/80">
-                      {item.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        {/* Direct About Us Narrative */}
+        <div className="max-w-3xl space-y-3">
+          <div>
+            <FramedLabel variant="maroon">About Us · RAKATA</FramedLabel>
           </div>
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#000000] [text-wrap:balance]">
+            Get to Know RAKATA
+          </h2>
+          <p className="text-base leading-relaxed text-[#000000]/80">
+            RAKATA merupakan UMKM kuliner yang menghadirkan pilihan makanan
+            berbahan dasar ayam dan kentang dengan cita rasa lezat, praktis, dan
+            terjangkau. Melalui berbagai pilihan topping khas Nusantara, varian
+            rasa modern, serta saus favorit, RAKATA ingin memberikan pengalaman
+            menikmati makanan yang menyenangkan bagi setiap pelanggan.
+          </p>
+        </div>
+
+        {/* Highlight Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {HIGHLIGHTS.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.title}
+                className="bg-black/[0.03] rounded-xl p-5 border border-black/10"
+              >
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="w-9 h-9 rounded-lg bg-[#8A1C05] text-[#E3BD32] flex items-center justify-center shrink-0">
+                    <Icon className="w-4 h-4" aria-hidden="true" />
+                  </span>
+                  <h3 className="font-display text-base font-bold text-[#000000]">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="text-sm leading-relaxed text-[#000000]/75">
+                  {item.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

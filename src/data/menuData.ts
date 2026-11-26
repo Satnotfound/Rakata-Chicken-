@@ -6,9 +6,6 @@ import type {
   ToppingOption,
 } from '../types/rakata';
 
-export const HERO_IMAGE = '/src/assets/images/hero_rakata_feast_1794546256853.jpg';
-export const ABOUT_IMAGE = '/src/assets/images/about_rakata_kitchen_1794546257147.jpg';
-
 export const MENU_CATEGORIES: MenuCategory[] = [
   'All Menu',
   'Chicken',
@@ -23,7 +20,8 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     category: 'Chicken',
     description:
       'Ayam gunting renyah dengan potongan praktis dan pilihan topping yang menggugah selera.',
-    image: '/src/assets/images/menu_ayam_gunting_1794546258253.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-26_at_14.46.21__1__6597f546.jpeg',
+    imageFit: 'contain',
     customizable: true,
     sizes: [
       { id: 's', label: 'Small (S)', price: 10000 },
@@ -36,7 +34,8 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     name: 'Kentang Goreng',
     category: 'Potato',
     description: 'Kentang goreng dengan tekstur renyah dan rasa gurih.',
-    image: '/src/assets/images/menu_kentang_goreng_1794546257752.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-26_at_14.46.21__2__eaef2cee.jpeg',
+    imageFit: 'contain',
     customizable: true,
     sizes: [
       { id: 's', label: 'Small (S)', price: 10000 },
@@ -49,7 +48,8 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     name: 'Kentang Spiral',
     category: 'Potato',
     description: 'Kentang spiral dengan bentuk unik dan tekstur renyah.',
-    image: '/src/assets/images/menu_kentang_spiral_1794546258151.jpg',
+    image: '/assets/aistudio/WhatsApp_Image_2026-11-26_at_14.58.28_321165fa.jpeg',
+    imageFit: 'contain',
     customizable: true,
     sizes: [{ id: 'reg', label: 'Regular', price: 15000 }],
   },
@@ -59,7 +59,8 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     category: 'Rice',
     description:
       'Nasi dengan pilihan rasa yang cocok dipadukan dengan ayam gunting.',
-    image: '/src/assets/images/menu_nasi_daun_jeruk_1794546259143.jpg',
+    image: '/assets/aistudio/_______________replica__________________________________________________________________________d52b03e5.jpeg',
+    imageFit: 'cover',
     customizable: false,
     sizes: [{ id: 'std', label: 'Regular', price: 5000 }],
   },
@@ -69,7 +70,8 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     category: 'Rice',
     description:
       'Nasi dengan pilihan rasa yang cocok dipadukan dengan ayam gunting.',
-    image: '/src/assets/images/menu_nasi_daun_jeruk_1794546259143.jpg',
+    image: '/assets/aistudio/Thai_Green_Rice__an_original_Thai_Recipe_from_LinsFood_95df0048.jpeg',
+    imageFit: 'cover',
     customizable: false,
     sizes: [{ id: 'std', label: 'Regular', price: 6000 }],
   },
@@ -151,6 +153,16 @@ export const SAUCE_OPTIONS: SauceOption[] = [
   { id: 'no-sauce', name: 'Tanpa Saus' },
 ];
 
+const IMG_AYAM_GUNTING =
+  '/assets/aistudio/WhatsApp_Image_2026-11-26_at_14.46.21__1__6597f546.jpeg';
+const IMG_KENTANG_GORENG =
+  '/assets/aistudio/WhatsApp_Image_2026-11-26_at_14.46.21__2__eaef2cee.jpeg';
+const IMG_KENTANG_SPIRAL =
+  '/assets/aistudio/WhatsApp_Image_2026-11-26_at_14.58.28_321165fa.jpeg';
+const IMG_NASI_PUTIH =
+  '/assets/aistudio/_______________replica__________________________________________________________________________d52b03e5.jpeg';
+const IMG_MAGIC_WATER = '/assets/aistudio/___1__75102b9d.jpeg';
+
 export const SPECIAL_PACKAGES: PackageItem[] = [
   {
     id: 'sks-1',
@@ -164,7 +176,10 @@ export const SPECIAL_PACKAGES: PackageItem[] = [
       '1x Kentang Goreng Small',
       'Free Bubuk Premium',
     ],
-    image: '/src/assets/images/menu_ayam_gunting_1794546258253.jpg',
+    image: IMG_AYAM_GUNTING,
+    galleryImages: [
+      { src: IMG_AYAM_GUNTING, alt: 'Ayam Gunting', fit: 'contain' },
+    ],
   },
   {
     id: 'sks-2',
@@ -178,7 +193,21 @@ export const SPECIAL_PACKAGES: PackageItem[] = [
       'Free Bubuk Premium',
     ],
     potatoChoiceOptions: ['Kentang Spiral Regular', 'Kentang Goreng Regular'],
-    image: '/src/assets/images/menu_kentang_spiral_1794546258151.jpg',
+    image: IMG_AYAM_GUNTING,
+    galleryImages: [
+      { src: IMG_AYAM_GUNTING, alt: 'Ayam Gunting', fit: 'contain' },
+      { src: IMG_KENTANG_SPIRAL, alt: 'Kentang Spiral', fit: 'contain' },
+    ],
+    galleryImagesByPotatoChoice: {
+      'Kentang Spiral Regular': [
+        { src: IMG_AYAM_GUNTING, alt: 'Ayam Gunting', fit: 'contain' },
+        { src: IMG_KENTANG_SPIRAL, alt: 'Kentang Spiral', fit: 'contain' },
+      ],
+      'Kentang Goreng Regular': [
+        { src: IMG_AYAM_GUNTING, alt: 'Ayam Gunting', fit: 'contain' },
+        { src: IMG_KENTANG_GORENG, alt: 'Kentang Goreng', fit: 'contain' },
+      ],
+    },
   },
   {
     id: 'ukt-1',
@@ -191,7 +220,11 @@ export const SPECIAL_PACKAGES: PackageItem[] = [
       '1x Nasi Putih',
       'Free Bubuk Premium',
     ],
-    image: '/src/assets/images/menu_nasi_daun_jeruk_1794546259143.jpg',
+    image: IMG_AYAM_GUNTING,
+    galleryImages: [
+      { src: IMG_NASI_PUTIH, alt: 'Nasi Putih', fit: 'cover' },
+      { src: IMG_AYAM_GUNTING, alt: 'Ayam Gunting', fit: 'contain' },
+    ],
   },
   {
     id: 'ukt-2',
@@ -205,6 +238,11 @@ export const SPECIAL_PACKAGES: PackageItem[] = [
       '1x Magic Water',
       'Free Bubuk Premium',
     ],
-    image: '/src/assets/images/hero_rakata_feast_1794546256853.jpg',
+    image: IMG_AYAM_GUNTING,
+    galleryImages: [
+      { src: IMG_AYAM_GUNTING, alt: 'Ayam Gunting', fit: 'contain' },
+      { src: IMG_NASI_PUTIH, alt: 'Nasi Putih', fit: 'cover' },
+      { src: IMG_MAGIC_WATER, alt: 'Magic Water', fit: 'contain' },
+    ],
   },
 ];

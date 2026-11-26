@@ -162,13 +162,13 @@ export function ToppingSelector({
       onClick={onClose}
     >
       <div
-        className="w-full sm:max-w-2xl max-h-[92vh] bg-[#FFF8EA] text-[#42201D] rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+        className="w-full sm:max-w-2xl max-h-[92vh] bg-[#FFFFFF] text-[#000000] rounded-t-2xl sm:rounded-2xl shadow-2xl flex flex-col overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="flex items-center justify-between gap-4 px-5 py-4 bg-[#781B19] text-white shrink-0">
+        <div className="flex items-center justify-between gap-4 px-5 py-4 bg-[#8A1C05] text-[#FFFFFF] shrink-0">
           <div className="flex items-center gap-3 min-w-0">
-            <div className="w-12 h-12 rounded-lg overflow-hidden bg-[#541412] shrink-0">
+            <div className="w-12 h-12 rounded-lg overflow-hidden bg-[#000000] shrink-0">
               <FoodImage
                 src={itemImage}
                 alt={itemTitle}
@@ -176,7 +176,7 @@ export function ToppingSelector({
               />
             </div>
             <div className="min-w-0">
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#F4C343]">
+              <p className="text-xs font-semibold uppercase tracking-wider text-[#E3BD32]">
                 {isPackage ? 'Customize Package' : 'Customize Menu'}
               </p>
               <h3
@@ -191,22 +191,22 @@ export function ToppingSelector({
             type="button"
             onClick={onClose}
             aria-label="Tutup pilihan topping"
-            className="w-9 h-9 rounded-lg flex items-center justify-center text-[#FFF8EA] hover:bg-white/15 transition-colors cursor-pointer shrink-0"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-[#FFFFFF] hover:bg-white/15 transition-colors cursor-pointer shrink-0"
           >
             <X className="w-5 h-5" aria-hidden="true" />
           </button>
         </div>
 
         {/* Scrollable Body */}
-        <div className="overflow-y-auto px-5 py-5 space-y-6">
+        <div className="overflow-y-auto px-5 py-5 space-y-6 bg-black/[0.02]">
           {/* Size Selection for Products with multiple sizes */}
           {target.kind === 'product' && target.product.sizes.length > 1 && (
             <div>
               <div className="flex items-baseline justify-between mb-2.5">
-                <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#781B19]">
+                <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#8A1C05]">
                   1. Pilih Ukuran
                 </h4>
-                <span className="text-xs text-[#42201D]/70">Wajib pilih 1</span>
+                <span className="text-xs text-[#000000]/70">Wajib pilih 1</span>
               </div>
               <div className="grid grid-cols-3 gap-2.5">
                 {target.product.sizes.map((size) => {
@@ -218,14 +218,14 @@ export function ToppingSelector({
                       onClick={() => setSelectedSizeId(size.id)}
                       className={`p-3 rounded-xl border text-left transition-colors cursor-pointer ${
                         active
-                          ? 'bg-[#781B19] text-white border-[#781B19]'
-                          : 'bg-white text-[#42201D] border-[#42201D]/15 hover:border-[#781B19]/50'
+                          ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                          : 'bg-[#FFFFFF] text-[#000000] border-black/15 hover:border-[#8A1C05]'
                       }`}
                     >
                       <div className="text-xs font-semibold">{size.label}</div>
                       <div
                         className={`text-sm font-bold tabular-nums mt-0.5 ${
-                          active ? 'text-[#F4C343]' : 'text-[#781B19]'
+                          active ? 'text-[#E3BD32]' : 'text-[#8A1C05]'
                         }`}
                       >
                         {formatIDR(size.price)}
@@ -241,10 +241,10 @@ export function ToppingSelector({
           {target.kind === 'package' && target.pkg.potatoChoiceOptions && (
             <div>
               <div className="flex items-baseline justify-between mb-2.5">
-                <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#781B19]">
+                <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#8A1C05]">
                   Pilih Varian Kentang (SKS 2)
                 </h4>
-                <span className="text-xs text-[#42201D]/70">Wajib pilih 1</span>
+                <span className="text-xs text-[#000000]/70">Wajib pilih 1</span>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {target.pkg.potatoChoiceOptions.map((option) => {
@@ -256,14 +256,14 @@ export function ToppingSelector({
                       onClick={() => setPotatoChoice(option)}
                       className={`flex items-center justify-between px-4 py-3 rounded-xl border text-sm font-semibold transition-colors cursor-pointer ${
                         active
-                          ? 'bg-[#781B19] text-white border-[#781B19]'
-                          : 'bg-white text-[#42201D] border-[#42201D]/15 hover:border-[#781B19]/50'
+                          ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                          : 'bg-[#FFFFFF] text-[#000000] border-black/15 hover:border-[#8A1C05]'
                       }`}
                     >
                       <span>{option}</span>
                       {active && (
                         <Check
-                          className="w-4 h-4 text-[#F4C343] shrink-0"
+                          className="w-4 h-4 text-[#E3BD32] shrink-0"
                           aria-hidden="true"
                         />
                       )}
@@ -277,17 +277,17 @@ export function ToppingSelector({
           {/* Topping Selection */}
           <div className="space-y-4">
             <div className="flex items-baseline justify-between">
-              <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#781B19]">
+              <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#8A1C05]">
                 Pilih Bubuk Tabur (Topping)
               </h4>
-              <span className="text-xs text-[#42201D]/70">
+              <span className="text-xs text-[#000000]/70">
                 {isPackage ? 'Free Bubuk Premium' : 'Pilih 1 rasa favorit'}
               </span>
             </div>
 
             {/* A. Nusantara */}
             <div>
-              <p className="text-xs font-bold text-[#42201D]/75 mb-2">
+              <p className="text-xs font-bold text-[#000000]/75 mb-2">
                 A. Bubuk Tabur Khas Nusantara · Gratis
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -300,14 +300,14 @@ export function ToppingSelector({
                       onClick={() => setSelectedTopping(topping)}
                       className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
                         active
-                          ? 'bg-[#781B19] text-white border-[#781B19]'
-                          : 'bg-white text-[#42201D] border-[#42201D]/15 hover:border-[#781B19]/50'
+                          ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                          : 'bg-[#FFFFFF] text-[#000000] border-black/15 hover:border-[#8A1C05]'
                       }`}
                     >
                       <span className="truncate">{topping.name}</span>
                       <span
                         className={`text-xs tabular-nums ml-2 shrink-0 ${
-                          active ? 'text-[#F4C343]' : 'text-[#42201D]/60'
+                          active ? 'text-[#E3BD32]' : 'text-[#000000]/60'
                         }`}
                       >
                         Rp0
@@ -320,7 +320,7 @@ export function ToppingSelector({
 
             {/* B. Reguler */}
             <div>
-              <p className="text-xs font-bold text-[#42201D]/75 mb-2">
+              <p className="text-xs font-bold text-[#000000]/75 mb-2">
                 B. Bubuk Tabur Reguler · Gratis
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
@@ -333,14 +333,14 @@ export function ToppingSelector({
                       onClick={() => setSelectedTopping(topping)}
                       className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
                         active
-                          ? 'bg-[#781B19] text-white border-[#781B19]'
-                          : 'bg-white text-[#42201D] border-[#42201D]/15 hover:border-[#781B19]/50'
+                          ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                          : 'bg-[#FFFFFF] text-[#000000] border-black/15 hover:border-[#8A1C05]'
                       }`}
                     >
                       <span className="truncate">{topping.name}</span>
                       <span
                         className={`text-xs tabular-nums ml-2 shrink-0 ${
-                          active ? 'text-[#F4C343]' : 'text-[#42201D]/60'
+                          active ? 'text-[#E3BD32]' : 'text-[#000000]/60'
                         }`}
                       >
                         Rp0
@@ -353,7 +353,7 @@ export function ToppingSelector({
 
             {/* C. Premium */}
             <div>
-              <p className="text-xs font-bold text-[#781B19] mb-2">
+              <p className="text-xs font-bold text-[#8A1C05] mb-2">
                 C. Bubuk Tabur Premium ·{' '}
                 {isPackage ? 'Gratis (Included in Package)' : '+ Rp2.000'}
               </p>
@@ -367,14 +367,14 @@ export function ToppingSelector({
                       onClick={() => setSelectedTopping(topping)}
                       className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
                         active
-                          ? 'bg-[#781B19] text-white border-[#781B19]'
-                          : 'bg-white text-[#42201D] border-[#F4C343]/70 hover:border-[#781B19]'
+                          ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                          : 'bg-[#FFFFFF] text-[#000000] border-[#E3BD32] hover:border-[#8A1C05]'
                       }`}
                     >
                       <span className="truncate">{topping.name}</span>
                       <span
                         className={`text-xs font-semibold tabular-nums ml-2 shrink-0 ${
-                          active ? 'text-[#F4C343]' : 'text-[#781B19]'
+                          active ? 'text-[#E3BD32]' : 'text-[#8A1C05]'
                         }`}
                       >
                         {isPackage ? 'Free' : '+Rp2.000'}
@@ -389,10 +389,10 @@ export function ToppingSelector({
           {/* D. Sauce Selection */}
           <div>
             <div className="flex items-baseline justify-between mb-2.5">
-              <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#781B19]">
+              <h4 className="font-display text-sm font-bold uppercase tracking-wide text-[#8A1C05]">
                 D. Pilih Sauce
               </h4>
-              <span className="text-xs text-[#42201D]/70">Gratis</span>
+              <span className="text-xs text-[#000000]/70">Gratis</span>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {SAUCE_OPTIONS.map((sauce) => {
@@ -404,8 +404,8 @@ export function ToppingSelector({
                     onClick={() => setSelectedSauce(sauce)}
                     className={`px-3 py-2.5 rounded-lg border text-sm font-medium transition-colors cursor-pointer ${
                       active
-                        ? 'bg-[#781B19] text-white border-[#781B19]'
-                        : 'bg-white text-[#42201D] border-[#42201D]/15 hover:border-[#781B19]/50'
+                        ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                        : 'bg-[#FFFFFF] text-[#000000] border-black/15 hover:border-[#8A1C05]'
                     }`}
                   >
                     {sauce.name}
@@ -417,14 +417,14 @@ export function ToppingSelector({
         </div>
 
         {/* Sticky Footer with Quantity & Live Final Price */}
-        <div className="px-5 py-4 bg-white border-t border-[#42201D]/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
+        <div className="px-5 py-4 bg-[#FFFFFF] border-t border-black/10 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0">
           <div className="flex items-center justify-between sm:justify-start gap-4">
-            <div className="inline-flex items-center border border-[#42201D]/20 rounded-lg bg-[#FFF8EA]">
+            <div className="inline-flex items-center border border-black/20 rounded-lg bg-black/[0.03]">
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                 aria-label="Kurangi jumlah"
-                className="w-10 h-10 flex items-center justify-center text-[#42201D] hover:bg-[#42201D]/10 rounded-l-lg cursor-pointer"
+                className="w-10 h-10 flex items-center justify-center text-[#000000] hover:bg-black/10 rounded-l-lg cursor-pointer"
               >
                 <Minus className="w-4 h-4" aria-hidden="true" />
               </button>
@@ -435,23 +435,23 @@ export function ToppingSelector({
                 type="button"
                 onClick={() => setQuantity((q) => q + 1)}
                 aria-label="Tambah jumlah"
-                className="w-10 h-10 flex items-center justify-center text-[#42201D] hover:bg-[#42201D]/10 rounded-r-lg cursor-pointer"
+                className="w-10 h-10 flex items-center justify-center text-[#000000] hover:bg-black/10 rounded-r-lg cursor-pointer"
               >
                 <Plus className="w-4 h-4" aria-hidden="true" />
               </button>
             </div>
 
             <div>
-              <div className="text-xs text-[#42201D]/70">
+              <div className="text-xs text-[#000000]/70">
                 Harga Satuan:{' '}
                 <span className="font-semibold tabular-nums">
                   {formatIDR(unitPrice)}
                 </span>
                 {effectiveToppingPrice > 0 && (
-                  <span className="text-[#781B19]"> (+Rp2.000 Premium)</span>
+                  <span className="text-[#8A1C05]"> (+Rp2.000 Premium)</span>
                 )}
               </div>
-              <div className="font-display text-lg font-extrabold text-[#781B19] tabular-nums">
+              <div className="font-display text-lg font-extrabold text-[#8A1C05] tabular-nums">
                 {formatIDR(finalTotal)}
               </div>
             </div>
@@ -460,7 +460,7 @@ export function ToppingSelector({
           <button
             type="button"
             onClick={handleSubmit}
-            className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#F4C343] hover:bg-[#f7cf63] text-[#42201D] font-bold text-sm transition-colors cursor-pointer whitespace-nowrap shrink-0"
+            className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#E3BD32] hover:brightness-95 text-[#000000] font-bold text-sm transition-all cursor-pointer whitespace-nowrap shrink-0"
           >
             Add to Cart · {formatIDR(finalTotal)}
           </button>

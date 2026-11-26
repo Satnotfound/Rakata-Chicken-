@@ -30,17 +30,17 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="bg-[#FFF8EA] text-[#42201D] py-16 sm:py-20">
+    <section id="contact" className="bg-black/[0.03] text-[#000000] py-16 sm:py-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-[#42201D]/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div className="bg-[#FFFFFF] rounded-2xl p-6 sm:p-10 shadow-sm border border-black/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-5 space-y-4">
-            <p className="text-xs font-bold tracking-[0.16em] uppercase text-[#781B19]">
+            <p className="text-xs font-bold tracking-[0.16em] uppercase text-[#8A1C05]">
               Contact Us
             </p>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#42201D] [text-wrap:balance]">
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#000000] [text-wrap:balance]">
               Let&apos;s Connect with RAKATA!
             </h2>
-            <p className="text-base leading-relaxed text-[#42201D]/80">
+            <p className="text-base leading-relaxed text-[#000000]/75">
               Have questions or want to place an order? Get in touch with us!
             </p>
 
@@ -49,10 +49,10 @@ export function Contact() {
                 href={directWhatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#781B19] hover:bg-[#541412] text-white font-bold text-sm transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg bg-[#8A1C05] hover:bg-[#000000] text-[#FFFFFF] font-bold text-sm transition-colors"
               >
                 <MessageCircle
-                  className="w-4 h-4 text-[#F4C343]"
+                  className="w-4 h-4 text-[#E3BD32]"
                   aria-hidden="true"
                 />
                 <span>Chat via WhatsApp</span>
@@ -66,15 +66,15 @@ export function Contact() {
               return (
                 <div
                   key={item.label}
-                  className="bg-[#FFF8EA] rounded-xl p-5 border border-[#42201D]/8"
+                  className="bg-black/[0.03] rounded-xl p-5 border border-black/10"
                 >
-                  <div className="flex items-center gap-2.5 text-[#781B19] mb-2">
+                  <div className="flex items-center gap-2.5 text-[#8A1C05] mb-2">
                     <Icon className="w-4 h-4 shrink-0" aria-hidden="true" />
                     <span className="text-xs font-bold uppercase tracking-wider">
                       {item.label}
                     </span>
                   </div>
-                  <p className="text-sm font-semibold text-[#42201D] leading-relaxed">
+                  <p className="text-sm font-semibold text-[#000000] leading-relaxed">
                     {item.value}
                   </p>
                 </div>

@@ -12,6 +12,7 @@ export type MenuProduct = {
   category: Exclude<MenuCategory, 'All Menu'>;
   description: string;
   image: string;
+  imageFit?: 'cover' | 'contain';
   sizes: ProductSizeOption[];
   customizable: boolean;
 };
@@ -31,6 +32,12 @@ export type SauceOption = {
   name: string;
 };
 
+export type PackageGalleryImage = {
+  src: string;
+  alt: string;
+  fit?: 'cover' | 'contain';
+};
+
 export type PackageItem = {
   id: string;
   code: string;
@@ -41,6 +48,8 @@ export type PackageItem = {
   contents: string[];
   potatoChoiceOptions?: string[];
   image: string;
+  galleryImages?: PackageGalleryImage[];
+  galleryImagesByPotatoChoice?: Record<string, PackageGalleryImage[]>;
 };
 
 export type CartItem = {

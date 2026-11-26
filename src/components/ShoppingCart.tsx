@@ -37,18 +37,18 @@ export function ShoppingCart() {
       onClick={closeCart}
     >
       <aside
-        className="w-full max-w-md h-full bg-[#FFF8EA] text-[#42201D] shadow-2xl flex flex-col"
+        className="w-full max-w-md h-full bg-[#FFFFFF] text-[#000000] shadow-2xl flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Drawer Header */}
-        <div className="px-5 py-4 bg-[#541412] text-white flex items-center justify-between gap-4 shrink-0">
+        <div className="px-5 py-4 bg-[#8A1C05] text-[#FFFFFF] flex items-center justify-between gap-4 shrink-0">
           <div className="flex items-center gap-2.5">
-            <ShoppingBag className="w-5 h-5 text-[#F4C343]" aria-hidden="true" />
+            <ShoppingBag className="w-5 h-5 text-[#E3BD32]" aria-hidden="true" />
             <div>
               <h2 id="shopping-cart-title" className="font-display text-lg font-bold">
                 Keranjang Pesanan
               </h2>
-              <p className="text-xs text-[#FFF8EA]/75 tabular-nums">
+              <p className="text-xs text-[#FFFFFF]/80 tabular-nums">
                 {totalItems} item dipilih
               </p>
             </div>
@@ -59,7 +59,7 @@ export function ShoppingCart() {
               <button
                 type="button"
                 onClick={clearCart}
-                className="text-xs font-semibold text-[#F4C343] hover:underline px-2 py-1 cursor-pointer"
+                className="text-xs font-semibold text-[#E3BD32] hover:underline px-2 py-1 cursor-pointer"
               >
                 Kosongkan
               </button>
@@ -68,7 +68,7 @@ export function ShoppingCart() {
               type="button"
               onClick={closeCart}
               aria-label="Tutup keranjang"
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-[#FFF8EA] hover:bg-white/10 transition-colors cursor-pointer"
+              className="w-9 h-9 rounded-lg flex items-center justify-center text-[#FFFFFF] hover:bg-white/10 transition-colors cursor-pointer"
             >
               <X className="w-5 h-5" aria-hidden="true" />
             </button>
@@ -78,14 +78,14 @@ export function ShoppingCart() {
         {/* Drawer Body */}
         {items.length === 0 ? (
           <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-4">
-            <div className="w-16 h-16 rounded-2xl bg-white border border-[#42201D]/10 flex items-center justify-center text-[#781B19]">
+            <div className="w-16 h-16 rounded-2xl bg-black/[0.04] border border-black/10 flex items-center justify-center text-[#8A1C05]">
               <ShoppingBag className="w-7 h-7" aria-hidden="true" />
             </div>
             <div className="space-y-1.5">
-              <h3 className="font-display text-lg font-bold text-[#42201D]">
+              <h3 className="font-display text-lg font-bold text-[#000000]">
                 Keranjang Masih Kosong
               </h3>
-              <p className="text-sm text-[#42201D]/75 max-w-xs">
+              <p className="text-sm text-[#000000]/75 max-w-xs">
                 Pilih ayam gunting, kentang goreng, atau paket spesial RAKATA
                 favoritmu terlebih dahulu.
               </p>
@@ -93,23 +93,23 @@ export function ShoppingCart() {
             <a
               href="#menu"
               onClick={closeCart}
-              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[#F4C343] hover:bg-[#f7cf63] text-[#42201D] font-bold text-sm transition-colors"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-[#E3BD32] hover:brightness-95 text-[#000000] font-bold text-sm transition-all"
             >
               Jelajahi Menu
             </a>
           </div>
         ) : (
-          <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5">
+          <div className="flex-1 overflow-y-auto px-5 py-4 space-y-5 bg-black/[0.02]">
             <div className="space-y-3">
               {items.map((item) => {
                 const subtotal = item.unitPrice * item.quantity;
                 return (
                   <div
                     key={item.cartItemId}
-                    className="bg-white rounded-xl p-3.5 border border-[#42201D]/10 shadow-xs space-y-3"
+                    className="bg-[#FFFFFF] rounded-xl p-3.5 border border-black/10 shadow-xs space-y-3"
                   >
                     <div className="flex gap-3">
-                      <div className="w-16 h-16 rounded-lg overflow-hidden bg-[#FFF8EA] shrink-0">
+                      <div className="w-16 h-16 rounded-lg overflow-hidden bg-black/[0.04] shrink-0">
                         <FoodImage
                           src={item.image}
                           alt={item.name}
@@ -119,30 +119,30 @@ export function ShoppingCart() {
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start justify-between gap-2">
-                          <h3 className="font-display text-sm font-bold text-[#42201D] leading-snug">
+                          <h3 className="font-display text-sm font-bold text-[#000000] leading-snug">
                             {item.name}
                           </h3>
                           <button
                             type="button"
                             onClick={() => removeItem(item.cartItemId)}
                             aria-label={`Hapus ${item.name}`}
-                            className="text-[#42201D]/45 hover:text-[#781B19] p-1 rounded cursor-pointer shrink-0"
+                            className="text-[#000000]/45 hover:text-[#8A1C05] p-1 rounded cursor-pointer shrink-0"
                           >
                             <Trash2 className="w-4 h-4" aria-hidden="true" />
                           </button>
                         </div>
 
-                        <div className="mt-1 space-y-0.5 text-xs text-[#42201D]/75">
+                        <div className="mt-1 space-y-0.5 text-xs text-[#000000]/70">
                           <p>
-                            Ukuran: <span className="font-semibold text-[#42201D]">{item.sizeLabel}</span>
+                            Ukuran: <span className="font-semibold text-[#000000]">{item.sizeLabel}</span>
                           </p>
                           <p>
                             Topping:{' '}
-                            <span className="font-semibold text-[#42201D]">
+                            <span className="font-semibold text-[#000000]">
                               {item.toppingName}
                             </span>
                             {item.toppingPrice > 0 && (
-                              <span className="text-[#781B19] font-semibold tabular-nums">
+                              <span className="text-[#8A1C05] font-semibold tabular-nums">
                                 {' '}
                                 (+{formatIDR(item.toppingPrice)})
                               </span>
@@ -150,7 +150,7 @@ export function ShoppingCart() {
                           </p>
                           <p>
                             Sauce:{' '}
-                            <span className="font-semibold text-[#42201D]">
+                            <span className="font-semibold text-[#000000]">
                               {item.sauceName}
                             </span>
                           </p>
@@ -158,13 +158,13 @@ export function ShoppingCart() {
                       </div>
                     </div>
 
-                    <div className="pt-2.5 border-t border-[#42201D]/8 flex items-center justify-between gap-3">
-                      <div className="inline-flex items-center border border-[#42201D]/15 rounded-lg bg-[#FFF8EA]">
+                    <div className="pt-2.5 border-t border-black/10 flex items-center justify-between gap-3">
+                      <div className="inline-flex items-center border border-black/15 rounded-lg bg-black/[0.03]">
                         <button
                           type="button"
                           onClick={() => updateQuantity(item.cartItemId, -1)}
                           aria-label={`Kurangi jumlah ${item.name}`}
-                          className="w-8 h-8 flex items-center justify-center text-[#42201D] hover:bg-[#42201D]/10 rounded-l-lg cursor-pointer"
+                          className="w-8 h-8 flex items-center justify-center text-[#000000] hover:bg-black/10 rounded-l-lg cursor-pointer"
                         >
                           <Minus className="w-3.5 h-3.5" aria-hidden="true" />
                         </button>
@@ -175,17 +175,17 @@ export function ShoppingCart() {
                           type="button"
                           onClick={() => updateQuantity(item.cartItemId, 1)}
                           aria-label={`Tambah jumlah ${item.name}`}
-                          className="w-8 h-8 flex items-center justify-center text-[#42201D] hover:bg-[#42201D]/10 rounded-r-lg cursor-pointer"
+                          className="w-8 h-8 flex items-center justify-center text-[#000000] hover:bg-black/10 rounded-r-lg cursor-pointer"
                         >
                           <Plus className="w-3.5 h-3.5" aria-hidden="true" />
                         </button>
                       </div>
 
                       <div className="text-right">
-                        <div className="text-[11px] text-[#42201D]/65 tabular-nums">
+                        <div className="text-[11px] text-[#000000]/65 tabular-nums">
                           {formatIDR(item.unitPrice)} x {item.quantity}
                         </div>
-                        <div className="font-display text-sm font-extrabold text-[#781B19] tabular-nums">
+                        <div className="font-display text-sm font-extrabold text-[#8A1C05] tabular-nums">
                           {formatIDR(subtotal)}
                         </div>
                       </div>
@@ -196,12 +196,12 @@ export function ShoppingCart() {
             </div>
 
             {/* Order Summary & WhatsApp Checkout */}
-            <div className="pt-4 border-t border-[#42201D]/15 space-y-4">
-              <div className="flex items-baseline justify-between bg-white rounded-xl px-4 py-3 border border-[#42201D]/10">
-                <span className="text-sm font-semibold text-[#42201D]">
+            <div className="pt-4 border-t border-black/15 space-y-4">
+              <div className="flex items-baseline justify-between bg-[#FFFFFF] rounded-xl px-4 py-3 border border-black/10">
+                <span className="text-sm font-semibold text-[#000000]">
                   Total Pembayaran
                 </span>
-                <span className="font-display text-xl font-extrabold text-[#781B19] tabular-nums">
+                <span className="font-display text-xl font-extrabold text-[#8A1C05] tabular-nums">
                   {formatIDR(totalPrice)}
                 </span>
               </div>

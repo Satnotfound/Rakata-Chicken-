@@ -64,7 +64,7 @@ function RakataStorefront({
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFF8EA] text-[#42201D]">
+    <div className="min-h-screen flex flex-col bg-[#FFFFFF] text-[#000000]">
       <Navbar />
 
       <main className="flex-1">
@@ -91,10 +91,10 @@ function RakataStorefront({
         <div
           role="status"
           aria-live="polite"
-          className="fixed bottom-4 right-4 z-40 max-w-sm bg-[#42201D] text-[#FFF8EA] px-4 py-3 rounded-xl shadow-xl border border-[#F4C343]/40 flex items-center gap-3"
+          className="fixed bottom-4 right-4 z-40 max-w-sm bg-[#000000] text-[#FFFFFF] px-4 py-3 rounded-xl shadow-xl border border-[#E3BD32]/50 flex items-center gap-3"
         >
           <CheckCircle2
-            className="w-5 h-5 text-[#F4C343] shrink-0"
+            className="w-5 h-5 text-[#E3BD32] shrink-0"
             aria-hidden="true"
           />
           <p className="text-xs sm:text-sm font-medium flex-1">
@@ -106,7 +106,7 @@ function RakataStorefront({
               dismissToast();
               openCart();
             }}
-            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#F4C343] text-[#42201D] font-bold text-xs whitespace-nowrap shrink-0 cursor-pointer"
+            className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#E3BD32] hover:brightness-95 text-[#000000] font-bold text-xs whitespace-nowrap shrink-0 cursor-pointer"
           >
             <ShoppingBag className="w-3.5 h-3.5" aria-hidden="true" />
             <span>Cart</span>
@@ -115,7 +115,7 @@ function RakataStorefront({
             type="button"
             onClick={dismissToast}
             aria-label="Tutup notifikasi"
-            className="text-[#FFF8EA]/70 hover:text-white p-1 cursor-pointer"
+            className="text-white/70 hover:text-white p-1 cursor-pointer"
           >
             <X className="w-4 h-4" aria-hidden="true" />
           </button>

@@ -1,14 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Times New Roman", system-ui, -apple-system, sans-serif;
-  --font-sans: "arial", system-ui, -apple-system, sans-serif;
+  --font-display: "Noto Sans JP Bold", "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  --font-sans: "Montserrat Medium", "Montserrat", system-ui, -apple-system, sans-serif;
 
-  --color-rakata-maroon: #781B19;
-  --color-rakata-dark-maroon: #541412;
-  --color-rakata-gold: #F4C343;
-  --color-rakata-cream: #FFF8EA;
-  --color-rakata-brown: #42201D;
+  --color-rakata-black: #000000;
+  --color-rakata-maroon: #8A1C05;
+  --color-rakata-dark-maroon: #8A1C05;
+  --color-rakata-gold: #E3BD32;
+  --color-rakata-white: #FFFFFF;
+  --color-rakata-cream: #FFFFFF;
+  --color-rakata-brown: #000000;
 }
 
 @layer base {

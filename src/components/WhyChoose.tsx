@@ -25,13 +25,13 @@ const BENEFITS = [
 
 export function WhyChoose() {
   return (
-    <section className="bg-white text-[#42201D] py-16 sm:py-20 border-y border-[#42201D]/8">
+    <section className="bg-[#FFFFFF] text-[#000000] py-16 sm:py-20 border-b border-black/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-10">
-          <p className="text-xs font-bold tracking-[0.16em] uppercase text-[#781B19] mb-2">
+          <p className="text-xs font-bold tracking-[0.16em] uppercase text-[#8A1C05] mb-2">
             Our Promise
           </p>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#42201D]">
+          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-[#000000]">
             Why RAKATA?
           </h2>
         </div>
@@ -42,15 +42,15 @@ export function WhyChoose() {
             return (
               <div
                 key={benefit.title}
-                className="bg-[#FFF8EA] rounded-2xl p-6 border border-[#42201D]/8 transition-transform duration-150 hover:-translate-y-0.5"
+                className="bg-black/[0.03] rounded-2xl p-6 border border-black/10 transition-transform duration-150 hover:-translate-y-0.5"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#781B19] text-[#F4C343] flex items-center justify-center mb-4">
+                <div className="w-11 h-11 rounded-xl bg-[#8A1C05] text-[#E3BD32] flex items-center justify-center mb-4">
                   <Icon className="w-5 h-5" aria-hidden="true" />
                 </div>
-                <h3 className="font-display text-lg font-bold text-[#42201D] mb-2">
+                <h3 className="font-display text-lg font-bold text-[#000000] mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[#42201D]/80">
+                <p className="text-sm leading-relaxed text-[#000000]/75">
                   {benefit.description}
                 </p>
               </div>

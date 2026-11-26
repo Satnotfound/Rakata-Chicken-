@@ -462,19 +462,19 @@ export function OwnerFinanceDashboard({
 
   if (!isUnlocked && ownerPin) {
     return (
-      <div className="min-h-screen bg-[#FFF8EA] text-[#42201D] flex flex-col">
-        <header className="bg-[#541412] text-white border-b border-white/10">
+      <div className="min-h-screen bg-black/[0.03] text-[#000000] flex flex-col">
+        <header className="bg-[#000000] text-[#FFFFFF] border-b border-white/15">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
             <div className="inline-flex items-center gap-2.5">
               <RakataChickenLogo className="w-9 h-6" />
-              <span className="font-display text-lg font-extrabold text-[#F4C343]">
+              <span className="font-display text-lg font-extrabold text-[#E3BD32]">
                 RAKATA · Pembukuan Owner
               </span>
             </div>
             <button
               type="button"
               onClick={onBackToStorefront}
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#FFF8EA] hover:text-[#F4C343] cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#FFFFFF] hover:text-[#E3BD32] cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4" aria-hidden="true" />
               <span>Kembali ke Toko</span>
@@ -485,16 +485,16 @@ export function OwnerFinanceDashboard({
         <main className="flex-1 flex items-center justify-center p-4">
           <form
             onSubmit={handleUnlockPin}
-            className="w-full max-w-sm bg-white rounded-2xl p-6 border border-[#42201D]/10 shadow-sm space-y-4"
+            className="w-full max-w-sm bg-[#FFFFFF] rounded-2xl p-6 border border-black/10 shadow-sm space-y-4"
           >
-            <div className="w-11 h-11 rounded-xl bg-[#781B19] text-[#F4C343] flex items-center justify-center">
+            <div className="w-11 h-11 rounded-xl bg-[#8A1C05] text-[#E3BD32] flex items-center justify-center">
               <Lock className="w-5 h-5" aria-hidden="true" />
             </div>
             <div>
-              <h1 className="font-display text-xl font-bold text-[#42201D]">
+              <h1 className="font-display text-xl font-bold text-[#000000]">
                 Akses Pembukuan Owner
               </h1>
-              <p className="text-sm text-[#42201D]/75 mt-1">
+              <p className="text-sm text-[#000000]/75 mt-1">
                 Masukkan PIN Owner untuk melihat dan mengelola catatan keuangan
                 RAKATA.
               </p>
@@ -502,7 +502,7 @@ export function OwnerFinanceDashboard({
             <div>
               <label
                 htmlFor="owner-pin-unlock"
-                className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
               >
                 PIN Keamanan
               </label>
@@ -516,7 +516,7 @@ export function OwnerFinanceDashboard({
                   setPinError('');
                 }}
                 placeholder="Masukkan 4–6 digit PIN"
-                className="w-full px-3.5 py-2.5 rounded-lg bg-[#FFF8EA] border border-[#42201D]/20 text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                className="w-full px-3.5 py-2.5 rounded-lg bg-black/[0.03] border border-black/20 text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
               />
               {pinError && (
                 <p className="mt-1.5 text-xs font-semibold text-[#DC2626]" role="alert">
@@ -526,7 +526,7 @@ export function OwnerFinanceDashboard({
             </div>
             <button
               type="submit"
-              className="w-full py-3 rounded-lg bg-[#781B19] hover:bg-[#541412] text-white font-bold text-sm transition-colors cursor-pointer"
+              className="w-full py-3 rounded-lg bg-[#8A1C05] hover:bg-[#000000] text-[#FFFFFF] font-bold text-sm transition-colors cursor-pointer"
             >
               Buka Pembukuan
             </button>
@@ -540,28 +540,28 @@ export function OwnerFinanceDashboard({
     formType === 'income' ? INCOME_CATEGORIES : EXPENSE_CATEGORIES;
 
   return (
-    <div className="min-h-screen bg-[#FFF8EA] text-[#42201D] flex flex-col">
+    <div className="min-h-screen bg-black/[0.03] text-[#000000] flex flex-col">
       {/* Workspace Top Bar (2-zone SaaS Dashboard Contract) */}
-      <header className="sticky top-0 z-40 bg-[#541412] text-white border-b border-white/10">
+      <header className="sticky top-0 z-40 bg-[#000000] text-[#FFFFFF] border-b-2 border-[#8A1C05]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <button
               type="button"
               onClick={onBackToStorefront}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs sm:text-sm font-semibold text-[#FFF8EA] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-xs sm:text-sm font-semibold text-[#FFFFFF] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               <ArrowLeft className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span>Kembali ke Toko</span>
             </button>
             <div className="hidden sm:flex items-center gap-2.5 text-sm truncate">
               <RakataChickenLogo className="w-9 h-6" />
-              <span className="font-display font-bold text-[#F4C343]">
+              <span className="font-display font-bold text-[#E3BD32]">
                 RAKATA
               </span>
               <span className="text-white/40" aria-hidden="true">
                 /
               </span>
-              <span className="text-[#FFF8EA]/90 font-medium truncate">
+              <span className="text-[#FFFFFF]/90 font-medium truncate">
                 Pembukuan Owner · Pemasukan &amp; Pengeluaran
               </span>
             </div>
@@ -572,10 +572,10 @@ export function OwnerFinanceDashboard({
               type="button"
               onClick={() => setIsPinModalOpen(true)}
               title="Pengaturan PIN Owner"
-              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-white/20 text-xs font-semibold text-[#FFF8EA] hover:bg-white/10 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg border border-white/25 text-xs font-semibold text-[#FFFFFF] hover:bg-white/10 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
             >
               {ownerPin ? (
-                <Lock className="w-3.5 h-3.5 text-[#F4C343]" aria-hidden="true" />
+                <Lock className="w-3.5 h-3.5 text-[#E3BD32]" aria-hidden="true" />
               ) : (
                 <Unlock className="w-3.5 h-3.5" aria-hidden="true" />
               )}
@@ -587,7 +587,7 @@ export function OwnerFinanceDashboard({
             <button
               type="button"
               onClick={() => openNewForm('income')}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#F4C343] hover:bg-[#f7cf63] text-[#42201D] font-bold text-xs sm:text-sm transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#E3BD32] hover:brightness-95 text-[#000000] font-bold text-xs sm:text-sm transition-all whitespace-nowrap shrink-0 cursor-pointer"
             >
               <Plus className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span>Catat Transaksi</span>
@@ -600,13 +600,13 @@ export function OwnerFinanceDashboard({
         {/* Title & Quick Action Strip */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#781B19]">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#8A1C05]">
               Business Owner Ledger
             </p>
-            <h1 className="font-display text-2xl sm:text-3xl font-bold text-[#42201D] mt-1">
+            <h1 className="font-display text-2xl sm:text-3xl font-bold text-[#000000] mt-1">
               Pencatatan Keuangan RAKATA
             </h1>
-            <p className="text-sm text-[#42201D]/75 mt-1">
+            <p className="text-sm text-[#000000]/75 mt-1">
               Pantau arus kas masuk, biaya bahan baku &amp; operasional, serta
               saldo per metode pembayaran secara real-time.
             </p>
@@ -632,7 +632,7 @@ export function OwnerFinanceDashboard({
             <button
               type="button"
               onClick={handleExportCsv}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white hover:bg-[#FFF8EA] border border-[#42201D]/15 text-[#42201D] text-xs font-semibold transition-colors whitespace-nowrap cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-[#FFFFFF] hover:bg-black/[0.04] border border-black/15 text-[#000000] text-xs font-semibold transition-colors whitespace-nowrap cursor-pointer"
             >
               <Download className="w-3.5 h-3.5" aria-hidden="true" />
               <span>Export CSV</span>
@@ -644,13 +644,13 @@ export function OwnerFinanceDashboard({
         {statusNotice && (
           <div
             role="status"
-            className="bg-[#541412] text-[#FFF8EA] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium flex items-center justify-between gap-3"
+            className="bg-[#000000] text-[#FFFFFF] px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium flex items-center justify-between gap-3"
           >
             <span>{statusNotice}</span>
             <button
               type="button"
               onClick={() => setStatusNotice(null)}
-              className="text-[#F4C343] hover:underline text-xs font-bold cursor-pointer"
+              className="text-[#E3BD32] hover:underline text-xs font-bold cursor-pointer"
             >
               Tutup
             </button>
@@ -663,35 +663,35 @@ export function OwnerFinanceDashboard({
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
           {/* Total Pemasukan */}
-          <div className="bg-white rounded-xl p-5 border border-[#42201D]/10">
+          <div className="bg-[#FFFFFF] rounded-xl p-5 border border-black/10">
             <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#16A34A]">
               <span>Total Pemasukan</span>
               <ArrowDownLeft className="w-4 h-4" aria-hidden="true" />
             </div>
-            <p className="font-display text-2xl font-extrabold text-[#42201D] tabular-nums mt-2">
+            <p className="font-display text-2xl font-extrabold text-[#000000] tabular-nums mt-2">
               {formatIDR(metrics.totalIncome)}
             </p>
-            <p className="text-xs text-[#42201D]/70 mt-1 tabular-nums">
+            <p className="text-xs text-[#000000]/70 mt-1 tabular-nums">
               {metrics.incomeCount} transaksi masuk
             </p>
           </div>
 
           {/* Total Pengeluaran */}
-          <div className="bg-white rounded-xl p-5 border border-[#42201D]/10">
+          <div className="bg-[#FFFFFF] rounded-xl p-5 border border-black/10">
             <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#DC2626]">
               <span>Total Pengeluaran</span>
               <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </div>
-            <p className="font-display text-2xl font-extrabold text-[#42201D] tabular-nums mt-2">
+            <p className="font-display text-2xl font-extrabold text-[#000000] tabular-nums mt-2">
               {formatIDR(metrics.totalExpense)}
             </p>
-            <p className="text-xs text-[#42201D]/70 mt-1 tabular-nums">
+            <p className="text-xs text-[#000000]/70 mt-1 tabular-nums">
               {metrics.expenseCount} transaksi keluar
             </p>
           </div>
 
           {/* Laba Bersih / Saldo */}
-          <div className="bg-white rounded-xl p-5 border border-[#42201D]/10">
+          <div className="bg-[#FFFFFF] rounded-xl p-5 border border-black/10">
             <div
               className={`flex items-center justify-between text-xs font-bold uppercase tracking-wider ${
                 metrics.netBalance >= 0 ? 'text-[#16A34A]' : 'text-[#DC2626]'
@@ -705,28 +705,28 @@ export function OwnerFinanceDashboard({
             </div>
             <p
               className={`font-display text-2xl font-extrabold tabular-nums mt-2 ${
-                metrics.netBalance >= 0 ? 'text-[#42201D]' : 'text-[#DC2626]'
+                metrics.netBalance >= 0 ? 'text-[#000000]' : 'text-[#DC2626]'
               }`}
             >
               {metrics.netBalance < 0
                 ? `-${formatIDR(Math.abs(metrics.netBalance))}`
                 : formatIDR(metrics.netBalance)}
             </p>
-            <p className="text-xs text-[#42201D]/70 mt-1">
+            <p className="text-xs text-[#000000]/70 mt-1">
               Selisih pemasukan &amp; pengeluaran
             </p>
           </div>
 
           {/* Margin & Total Transaksi */}
-          <div className="bg-white rounded-xl p-5 border border-[#42201D]/10">
-            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#781B19]">
+          <div className="bg-[#FFFFFF] rounded-xl p-5 border border-black/10">
+            <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#8A1C05]">
               <span>Margin Usaha</span>
               <BookOpen className="w-4 h-4" aria-hidden="true" />
             </div>
-            <p className="font-display text-2xl font-extrabold text-[#42201D] tabular-nums mt-2">
+            <p className="font-display text-2xl font-extrabold text-[#000000] tabular-nums mt-2">
               {metrics.marginPercent}%
             </p>
-            <p className="text-xs text-[#42201D]/70 mt-1 tabular-nums">
+            <p className="text-xs text-[#000000]/70 mt-1 tabular-nums">
               {filteredEntries.length} total catatan pada periode
             </p>
           </div>
@@ -736,17 +736,17 @@ export function OwnerFinanceDashboard({
         {entries.length > 0 && (
           <section className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             {/* Saldo per Metode Pembayaran */}
-            <div className="lg:col-span-6 bg-white rounded-xl p-5 border border-[#42201D]/10 space-y-4">
+            <div className="lg:col-span-6 bg-[#FFFFFF] rounded-xl p-5 border border-black/10 space-y-4">
               <div className="flex items-center justify-between">
-                <h2 className="font-display text-base font-bold text-[#42201D]">
+                <h2 className="font-display text-base font-bold text-[#000000]">
                   Arus Kas per Metode Pembayaran
                 </h2>
-                <span className="text-xs text-[#42201D]/65">
+                <span className="text-xs text-[#000000]/65">
                   Laci Kas vs Rekening
                 </span>
               </div>
 
-              <div className="divide-y divide-[#42201D]/10">
+              <div className="divide-y divide-black/10">
                 {(
                   [
                     {
@@ -776,10 +776,10 @@ export function OwnerFinanceDashboard({
                     >
                       <div className="flex items-center gap-2.5">
                         <Icon
-                          className="w-4 h-4 text-[#781B19] shrink-0"
+                          className="w-4 h-4 text-[#8A1C05] shrink-0"
                           aria-hidden="true"
                         />
-                        <span className="text-sm font-semibold text-[#42201D]">
+                        <span className="text-sm font-semibold text-[#000000]">
                           {ch.label}
                         </span>
                       </div>
@@ -790,7 +790,7 @@ export function OwnerFinanceDashboard({
                         <span className="text-[#DC2626] font-semibold">
                           -{formatIDR(stat.expense)}
                         </span>
-                        <span className="font-bold text-[#42201D] min-w-[90px] text-right">
+                        <span className="font-bold text-[#000000] min-w-[90px] text-right">
                           {net < 0
                             ? `-${formatIDR(Math.abs(net))}`
                             : formatIDR(net)}
@@ -803,12 +803,12 @@ export function OwnerFinanceDashboard({
             </div>
 
             {/* Rincian Kategori Pengeluaran & Pemasukan */}
-            <div className="lg:col-span-6 bg-white rounded-xl p-5 border border-[#42201D]/10 space-y-4">
-              <h2 className="font-display text-base font-bold text-[#42201D]">
+            <div className="lg:col-span-6 bg-[#FFFFFF] rounded-xl p-5 border border-black/10 space-y-4">
+              <h2 className="font-display text-base font-bold text-[#000000]">
                 Komposisi Pengeluaran Terbesar
               </h2>
               {metrics.topExpenseCategories.length === 0 ? (
-                <p className="text-sm text-[#42201D]/65">
+                <p className="text-sm text-[#000000]/65">
                   Belum ada catatan pengeluaran pada periode yang dipilih.
                 </p>
               ) : (
@@ -821,16 +821,16 @@ export function OwnerFinanceDashboard({
                     return (
                       <div key={cat.name} className="space-y-1">
                         <div className="flex items-center justify-between text-xs">
-                          <span className="font-semibold text-[#42201D] truncate pr-3">
+                          <span className="font-semibold text-[#000000] truncate pr-3">
                             {cat.name}
                           </span>
                           <span className="font-bold text-[#DC2626] tabular-nums shrink-0">
                             {formatIDR(cat.amount)} ({pct}%)
                           </span>
                         </div>
-                        <div className="h-2 rounded-full bg-[#FFF8EA] overflow-hidden">
+                        <div className="h-2 rounded-full bg-black/[0.06] overflow-hidden">
                           <div
-                            className="h-full bg-[#781B19] rounded-full"
+                            className="h-full bg-[#8A1C05] rounded-full"
                             style={{ width: `${Math.max(pct, 4)}%` }}
                           />
                         </div>
@@ -844,9 +844,9 @@ export function OwnerFinanceDashboard({
         )}
 
         {/* Filter Toolbar & Ledger Table */}
-        <section className="bg-white rounded-xl border border-[#42201D]/10 overflow-hidden">
+        <section className="bg-[#FFFFFF] rounded-xl border border-black/10 overflow-hidden">
           {/* Toolbar */}
-          <div className="p-4 border-b border-[#42201D]/10 space-y-3">
+          <div className="p-4 border-b border-black/10 space-y-3">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-3">
               {/* Period Filters */}
               <div className="flex flex-wrap items-center gap-1.5">
@@ -865,8 +865,8 @@ export function OwnerFinanceDashboard({
                     onClick={() => setPeriodFilter(p.id)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap ${
                       periodFilter === p.id
-                        ? 'bg-[#781B19] text-white'
-                        : 'bg-[#FFF8EA] text-[#42201D] hover:bg-[#F4C343]/30'
+                        ? 'bg-[#8A1C05] text-[#FFFFFF]'
+                        : 'bg-black/[0.04] text-[#000000] hover:bg-[#E3BD32]/30'
                     }`}
                   >
                     {p.label}
@@ -878,7 +878,7 @@ export function OwnerFinanceDashboard({
                     aria-label="Pilih bulan laporan"
                     value={customMonth}
                     onChange={(e) => setCustomMonth(e.target.value)}
-                    className="px-2.5 py-1 rounded-lg border border-[#42201D]/20 text-xs font-semibold text-[#42201D] bg-white"
+                    className="px-2.5 py-1 rounded-lg border border-black/20 text-xs font-semibold text-[#000000] bg-[#FFFFFF]"
                   />
                 )}
               </div>
@@ -887,7 +887,7 @@ export function OwnerFinanceDashboard({
               <div className="flex flex-wrap items-center gap-2">
                 <div className="relative flex-1 sm:flex-initial">
                   <Search
-                    className="w-3.5 h-3.5 text-[#42201D]/50 absolute left-3 top-1/2 -translate-y-1/2"
+                    className="w-3.5 h-3.5 text-[#000000]/50 absolute left-3 top-1/2 -translate-y-1/2"
                     aria-hidden="true"
                   />
                   <input
@@ -895,7 +895,7 @@ export function OwnerFinanceDashboard({
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Cari catatan / kategori..."
-                    className="w-full sm:w-52 pl-8 pr-3 py-1.5 rounded-lg border border-[#42201D]/20 text-xs text-[#42201D] bg-[#FFF8EA]/50 focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                    className="w-full sm:w-52 pl-8 pr-3 py-1.5 rounded-lg border border-black/20 text-xs text-[#000000] bg-black/[0.02] focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                   />
                 </div>
 
@@ -905,7 +905,7 @@ export function OwnerFinanceDashboard({
                   onChange={(e) =>
                     setTypeFilter(e.target.value as 'all' | FinanceEntryType)
                   }
-                  className="px-2.5 py-1.5 rounded-lg border border-[#42201D]/20 text-xs font-semibold text-[#42201D] bg-white"
+                  className="px-2.5 py-1.5 rounded-lg border border-black/20 text-xs font-semibold text-[#000000] bg-[#FFFFFF]"
                 >
                   <option value="all">Semua Tipe</option>
                   <option value="income">Pemasukan</option>
@@ -920,7 +920,7 @@ export function OwnerFinanceDashboard({
                       e.target.value as 'all' | FinancePaymentMethod
                     )
                   }
-                  className="px-2.5 py-1.5 rounded-lg border border-[#42201D]/20 text-xs font-semibold text-[#42201D] bg-white"
+                  className="px-2.5 py-1.5 rounded-lg border border-black/20 text-xs font-semibold text-[#000000] bg-[#FFFFFF]"
                 >
                   <option value="all">Semua Metode</option>
                   <option value="cash">Tunai (Cash)</option>
@@ -931,13 +931,13 @@ export function OwnerFinanceDashboard({
             </div>
 
             {/* Backup / Restore / Clear Tools */}
-            <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-[#42201D]/8 text-xs">
+            <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-black/10 text-xs">
               <div className="flex flex-wrap items-center gap-2">
                 <button
                   type="button"
                   onClick={handleBackupJson}
                   disabled={entries.length === 0}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[#42201D]/80 hover:bg-[#FFF8EA] disabled:opacity-40 cursor-pointer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[#000000]/80 hover:bg-black/[0.04] disabled:opacity-40 cursor-pointer"
                 >
                   <Download className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Backup JSON</span>
@@ -945,7 +945,7 @@ export function OwnerFinanceDashboard({
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[#42201D]/80 hover:bg-[#FFF8EA] cursor-pointer"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[#000000]/80 hover:bg-black/[0.04] cursor-pointer"
                 >
                   <Upload className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Restore JSON</span>
@@ -962,7 +962,7 @@ export function OwnerFinanceDashboard({
               {entries.length > 0 && (
                 <div>
                   {confirmClearAll ? (
-                    <div className="inline-flex items-center gap-2 bg-[#FFF8EA] px-2.5 py-1 rounded-lg border border-[#DC2626]/30">
+                    <div className="inline-flex items-center gap-2 bg-black/[0.03] px-2.5 py-1 rounded-lg border border-[#DC2626]/30">
                       <span className="font-semibold text-[#DC2626]">
                         Hapus semua catatan?
                       </span>
@@ -980,7 +980,7 @@ export function OwnerFinanceDashboard({
                       <button
                         type="button"
                         onClick={() => setConfirmClearAll(false)}
-                        className="font-semibold text-[#42201D] hover:underline cursor-pointer"
+                        className="font-semibold text-[#000000] hover:underline cursor-pointer"
                       >
                         Batal
                       </button>
@@ -1003,16 +1003,16 @@ export function OwnerFinanceDashboard({
           {/* Empty State vs Populated Table */}
           {filteredEntries.length === 0 ? (
             <div className="p-10 text-center space-y-4">
-              <div className="w-12 h-12 rounded-xl bg-[#FFF8EA] text-[#781B19] mx-auto flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-black/[0.04] text-[#8A1C05] mx-auto flex items-center justify-center">
                 <BookOpen className="w-6 h-6" aria-hidden="true" />
               </div>
               <div className="space-y-1 max-w-md mx-auto">
-                <h3 className="font-display text-lg font-bold text-[#42201D]">
+                <h3 className="font-display text-lg font-bold text-[#000000]">
                   {entries.length === 0
                     ? 'Belum Ada Catatan Keuangan'
                     : 'Tidak Ada Transaksi yang Cocok'}
                 </h3>
-                <p className="text-sm text-[#42201D]/75">
+                <p className="text-sm text-[#000000]/75">
                   {entries.length === 0
                     ? 'Mulai catat pemasukan penjualan harian serta pengeluaran bahan baku (ayam, kentang, bumbu, minyak, kemasan) untuk memantau laba usaha RAKATA.'
                     : 'Coba ubah filter tanggal, tipe transaksi, atau kata kunci pencarian.'}
@@ -1022,7 +1022,7 @@ export function OwnerFinanceDashboard({
                 <button
                   type="button"
                   onClick={() => openNewForm('income')}
-                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#F4C343] hover:bg-[#f7cf63] text-[#42201D] font-bold text-sm transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#E3BD32] hover:brightness-95 text-[#000000] font-bold text-sm transition-all cursor-pointer"
                 >
                   <Plus className="w-4 h-4" aria-hidden="true" />
                   <span>Catat Transaksi Pertama</span>
@@ -1034,7 +1034,7 @@ export function OwnerFinanceDashboard({
                       loadSampleEntries();
                       showNotice('Contoh data pembukuan UMKM RAKATA berhasil dimuat.');
                     }}
-                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-[#42201D]/20 bg-white hover:bg-[#FFF8EA] text-[#42201D] font-semibold text-sm transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg border border-black/20 bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] font-semibold text-sm transition-colors cursor-pointer"
                   >
                     <span>Muat Contoh Data UMKM</span>
                   </button>
@@ -1045,7 +1045,7 @@ export function OwnerFinanceDashboard({
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-[#FFF8EA] border-b border-[#42201D]/10 text-[11px] font-bold uppercase tracking-wider text-[#781B19]">
+                  <tr className="bg-black/[0.03] border-b border-black/10 text-[11px] font-bold uppercase tracking-wider text-[#8A1C05]">
                     <th className="py-3 px-4 whitespace-nowrap">Tanggal</th>
                     <th className="py-3 px-4 whitespace-nowrap">Tipe</th>
                     <th className="py-3 px-4 whitespace-nowrap">Kategori</th>
@@ -1059,16 +1059,16 @@ export function OwnerFinanceDashboard({
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#42201D]/8 text-sm">
+                <tbody className="divide-y divide-black/10 text-sm">
                   {filteredEntries.map((entry) => {
                     const isIncome = entry.type === 'income';
                     const isDeleting = confirmDeleteId === entry.id;
                     return (
                       <tr
                         key={entry.id}
-                        className="hover:bg-[#FFF8EA]/60 transition-colors"
+                        className="hover:bg-black/[0.02] transition-colors"
                       >
-                        <td className="py-3 px-4 text-xs font-semibold text-[#42201D]/80 tabular-nums whitespace-nowrap">
+                        <td className="py-3 px-4 text-xs font-semibold text-[#000000]/80 tabular-nums whitespace-nowrap">
                           {formatDateID(entry.date)}
                         </td>
                         <td className="py-3 px-4 whitespace-nowrap">
@@ -1091,13 +1091,13 @@ export function OwnerFinanceDashboard({
                             <span>{isIncome ? 'Masuk' : 'Keluar'}</span>
                           </span>
                         </td>
-                        <td className="py-3 px-4 text-xs font-semibold text-[#42201D] whitespace-nowrap">
+                        <td className="py-3 px-4 text-xs font-semibold text-[#000000] whitespace-nowrap">
                           {entry.category}
                         </td>
-                        <td className="py-3 px-4 text-xs sm:text-sm text-[#42201D]/85 min-w-[200px]">
+                        <td className="py-3 px-4 text-xs sm:text-sm text-[#000000]/85 min-w-[200px]">
                           {entry.description}
                         </td>
-                        <td className="py-3 px-4 text-xs font-medium text-[#42201D]/75 whitespace-nowrap">
+                        <td className="py-3 px-4 text-xs font-medium text-[#000000]/75 whitespace-nowrap">
                           {formatPaymentLabel(entry.paymentMethod)}
                         </td>
                         <td
@@ -1125,7 +1125,7 @@ export function OwnerFinanceDashboard({
                               <button
                                 type="button"
                                 onClick={() => setConfirmDeleteId(null)}
-                                className="font-semibold text-[#42201D]/70 hover:underline cursor-pointer"
+                                className="font-semibold text-[#000000]/70 hover:underline cursor-pointer"
                               >
                                 Batal
                               </button>
@@ -1136,7 +1136,7 @@ export function OwnerFinanceDashboard({
                                 type="button"
                                 onClick={() => openEditForm(entry)}
                                 aria-label={`Edit catatan ${entry.description}`}
-                                className="p-1.5 rounded-lg text-[#42201D]/60 hover:text-[#781B19] hover:bg-[#FFF8EA] cursor-pointer"
+                                className="p-1.5 rounded-lg text-[#000000]/60 hover:text-[#8A1C05] hover:bg-black/[0.04] cursor-pointer"
                               >
                                 <Edit3 className="w-4 h-4" aria-hidden="true" />
                               </button>
@@ -1144,7 +1144,7 @@ export function OwnerFinanceDashboard({
                                 type="button"
                                 onClick={() => setConfirmDeleteId(entry.id)}
                                 aria-label={`Hapus catatan ${entry.description}`}
-                                className="p-1.5 rounded-lg text-[#42201D]/60 hover:text-[#DC2626] hover:bg-[#DC2626]/10 cursor-pointer"
+                                className="p-1.5 rounded-lg text-[#000000]/60 hover:text-[#DC2626] hover:bg-[#DC2626]/10 cursor-pointer"
                               >
                                 <Trash2 className="w-4 h-4" aria-hidden="true" />
                               </button>
@@ -1173,9 +1173,9 @@ export function OwnerFinanceDashboard({
           <form
             onSubmit={handleSaveEntry}
             onClick={(e) => e.stopPropagation()}
-            className="w-full sm:max-w-lg bg-[#FFF8EA] text-[#42201D] rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full sm:max-w-lg bg-[#FFFFFF] text-[#000000] rounded-t-2xl sm:rounded-2xl shadow-2xl overflow-hidden"
           >
-            <div className="px-5 py-4 bg-[#781B19] text-white flex items-center justify-between">
+            <div className="px-5 py-4 bg-[#8A1C05] text-[#FFFFFF] flex items-center justify-between">
               <h2 id="finance-form-title" className="font-display text-lg font-bold">
                 {editingEntry ? 'Edit Catatan Keuangan' : 'Catat Transaksi Baru'}
               </h2>
@@ -1189,10 +1189,10 @@ export function OwnerFinanceDashboard({
               </button>
             </div>
 
-            <div className="p-5 space-y-4 max-h-[80vh] overflow-y-auto">
+            <div className="p-5 space-y-4 max-h-[80vh] overflow-y-auto bg-black/[0.02]">
               {/* Type Segmented Control */}
               <div>
-                <span className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5">
+                <span className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5">
                   Jenis Transaksi
                 </span>
                 <div className="grid grid-cols-2 gap-2">
@@ -1202,7 +1202,7 @@ export function OwnerFinanceDashboard({
                     className={`flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm font-bold transition-colors cursor-pointer ${
                       formType === 'income'
                         ? 'bg-[#16A34A] text-white border-[#16A34A]'
-                        : 'bg-white text-[#42201D] border-[#42201D]/15'
+                        : 'bg-[#FFFFFF] text-[#000000] border-black/15'
                     }`}
                   >
                     <ArrowDownLeft className="w-4 h-4" aria-hidden="true" />
@@ -1214,7 +1214,7 @@ export function OwnerFinanceDashboard({
                     className={`flex items-center justify-center gap-2 py-2.5 rounded-lg border text-sm font-bold transition-colors cursor-pointer ${
                       formType === 'expense'
                         ? 'bg-[#DC2626] text-white border-[#DC2626]'
-                        : 'bg-white text-[#42201D] border-[#42201D]/15'
+                        : 'bg-[#FFFFFF] text-[#000000] border-black/15'
                     }`}
                   >
                     <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
@@ -1227,7 +1227,7 @@ export function OwnerFinanceDashboard({
                 <div>
                   <label
                     htmlFor="fin-date"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
                   >
                     Tanggal
                   </label>
@@ -1236,14 +1236,14 @@ export function OwnerFinanceDashboard({
                     type="date"
                     value={formDate}
                     onChange={(e) => setFormDate(e.target.value)}
-                    className="w-full px-3 py-2.5 rounded-lg bg-white border border-[#42201D]/20 text-sm text-[#42201D] focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                    className="w-full px-3 py-2.5 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="fin-payment"
-                    className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                    className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
                   >
                     Metode Pembayaran
                   </label>
@@ -1255,7 +1255,7 @@ export function OwnerFinanceDashboard({
                         e.target.value as FinancePaymentMethod
                       )
                     }
-                    className="w-full px-3 py-2.5 rounded-lg bg-white border border-[#42201D]/20 text-sm text-[#42201D] focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                    className="w-full px-3 py-2.5 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                   >
                     <option value="cash">Tunai (Cash)</option>
                     <option value="transfer">Transfer Bank</option>
@@ -1267,7 +1267,7 @@ export function OwnerFinanceDashboard({
               <div>
                 <label
                   htmlFor="fin-category"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
                 >
                   Kategori
                 </label>
@@ -1275,7 +1275,7 @@ export function OwnerFinanceDashboard({
                   id="fin-category"
                   value={formCategory}
                   onChange={(e) => setFormCategory(e.target.value)}
-                  className="w-full px-3 py-2.5 rounded-lg bg-white border border-[#42201D]/20 text-sm text-[#42201D] focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                  className="w-full px-3 py-2.5 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                 >
                   {activeCategories.map((cat) => (
                     <option key={cat} value={cat}>
@@ -1288,7 +1288,7 @@ export function OwnerFinanceDashboard({
               <div>
                 <label
                   htmlFor="fin-amount"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
                 >
                   Nominal (Rp)
                 </label>
@@ -1303,10 +1303,10 @@ export function OwnerFinanceDashboard({
                     setFormError('');
                   }}
                   placeholder="Contoh: 150000"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#42201D]/20 text-sm font-bold tabular-nums text-[#42201D] focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm font-bold tabular-nums text-[#000000] focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                 />
                 {Number(formAmount) > 0 && (
-                  <p className="mt-1 text-xs font-semibold text-[#781B19] tabular-nums">
+                  <p className="mt-1 text-xs font-semibold text-[#8A1C05] tabular-nums">
                     Terbaca: {formatIDR(Number(formAmount))}
                   </p>
                 )}
@@ -1315,7 +1315,7 @@ export function OwnerFinanceDashboard({
               <div>
                 <label
                   htmlFor="fin-description"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
                 >
                   Keterangan
                 </label>
@@ -1332,7 +1332,7 @@ export function OwnerFinanceDashboard({
                       ? 'Contoh: Rekap penjualan shift siang (Ayam Gunting & Kentang)'
                       : 'Contoh: Belanja ayam fillet 5 kg dan kentang goreng'
                   }
-                  className="w-full px-3.5 py-2 rounded-lg bg-white border border-[#42201D]/20 text-sm text-[#42201D] resize-none focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                  className="w-full px-3.5 py-2 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm text-[#000000] resize-none focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                 />
               </div>
 
@@ -1343,17 +1343,17 @@ export function OwnerFinanceDashboard({
               )}
             </div>
 
-            <div className="px-5 py-4 bg-white border-t border-[#42201D]/10 flex items-center justify-end gap-2">
+            <div className="px-5 py-4 bg-[#FFFFFF] border-t border-black/10 flex items-center justify-end gap-2">
               <button
                 type="button"
                 onClick={() => setIsFormOpen(false)}
-                className="px-4 py-2.5 rounded-lg border border-[#42201D]/15 text-sm font-semibold text-[#42201D] hover:bg-[#FFF8EA] cursor-pointer"
+                className="px-4 py-2.5 rounded-lg border border-black/15 text-sm font-semibold text-[#000000] hover:bg-black/[0.04] cursor-pointer"
               >
                 Batal
               </button>
               <button
                 type="submit"
-                className="px-5 py-2.5 rounded-lg bg-[#F4C343] hover:bg-[#f7cf63] text-[#42201D] font-bold text-sm cursor-pointer"
+                className="px-5 py-2.5 rounded-lg bg-[#E3BD32] hover:brightness-95 text-[#000000] font-bold text-sm cursor-pointer"
               >
                 {editingEntry ? 'Simpan Perubahan' : 'Simpan Catatan'}
               </button>
@@ -1373,9 +1373,9 @@ export function OwnerFinanceDashboard({
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-full max-w-sm bg-[#FFF8EA] text-[#42201D] rounded-2xl shadow-2xl overflow-hidden"
+            className="w-full max-w-sm bg-[#FFFFFF] text-[#000000] rounded-2xl shadow-2xl overflow-hidden"
           >
-            <div className="px-5 py-4 bg-[#541412] text-white flex items-center justify-between">
+            <div className="px-5 py-4 bg-[#8A1C05] text-[#FFFFFF] flex items-center justify-between">
               <h2 id="pin-settings-title" className="font-display text-base font-bold">
                 Keamanan PIN Owner
               </h2>
@@ -1390,7 +1390,7 @@ export function OwnerFinanceDashboard({
             </div>
 
             <form onSubmit={handleSavePinSetting} className="p-5 space-y-4">
-              <p className="text-xs text-[#42201D]/80 leading-relaxed">
+              <p className="text-xs text-[#000000]/80 leading-relaxed">
                 Aktifkan PIN 4–6 digit agar halaman pembukuan hanya dapat dibuka
                 oleh pemilik usaha saat perangkat dipakai bersama kasir/pelanggan.
               </p>
@@ -1398,7 +1398,7 @@ export function OwnerFinanceDashboard({
               <div>
                 <label
                   htmlFor="new-owner-pin"
-                  className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
                 >
                   {ownerPin ? 'Ganti PIN Baru' : 'Buat PIN Owner'}
                 </label>
@@ -1413,7 +1413,7 @@ export function OwnerFinanceDashboard({
                     setPinSettingError('');
                   }}
                   placeholder="4–6 digit angka"
-                  className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#42201D]/20 text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+                  className="w-full px-3.5 py-2.5 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm font-mono tracking-widest focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
                 />
                 {pinSettingError && (
                   <p className="mt-1 text-xs font-semibold text-[#DC2626]">
@@ -1442,13 +1442,13 @@ export function OwnerFinanceDashboard({
                   <button
                     type="button"
                     onClick={() => setIsPinModalOpen(false)}
-                    className="px-3.5 py-2 rounded-lg border border-[#42201D]/15 text-xs font-semibold cursor-pointer"
+                    className="px-3.5 py-2 rounded-lg border border-black/15 text-xs font-semibold cursor-pointer"
                   >
                     Tutup
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 rounded-lg bg-[#781B19] text-white text-xs font-bold cursor-pointer"
+                    className="px-4 py-2 rounded-lg bg-[#8A1C05] text-[#FFFFFF] text-xs font-bold cursor-pointer"
                   >
                     Simpan PIN
                   </button>

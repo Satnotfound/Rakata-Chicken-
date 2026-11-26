@@ -152,7 +152,7 @@ function QrisBarcodeSvg() {
               y={y}
               width={1}
               height={1}
-              fill="#42201D"
+              fill="#000000"
             />
           ) : null
         )
@@ -224,7 +224,7 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
     <div className="space-y-4">
       {/* Payment Method Selector */}
       <div>
-        <span className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-2">
+        <span className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-2">
           Metode Pembayaran
         </span>
         <div
@@ -244,13 +244,13 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
                 onClick={() => setPaymentMethod(option.id)}
                 className={`flex flex-col items-center justify-center gap-1.5 px-2 py-2.5 rounded-xl border text-center transition-colors cursor-pointer ${
                   active
-                    ? 'bg-[#781B19] text-white border-[#781B19]'
-                    : 'bg-white text-[#42201D] border-[#42201D]/15 hover:border-[#781B19]/50'
+                    ? 'bg-[#8A1C05] text-[#FFFFFF] border-[#8A1C05]'
+                    : 'bg-[#FFFFFF] text-[#000000] border-black/15 hover:border-[#8A1C05]'
                 }`}
               >
                 <Icon
                   className={`w-4 h-4 shrink-0 ${
-                    active ? 'text-[#F4C343]' : 'text-[#781B19]'
+                    active ? 'text-[#E3BD32]' : 'text-[#8A1C05]'
                   }`}
                   aria-hidden="true"
                 />
@@ -265,8 +265,8 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
         {/* Selected Payment Method Details */}
         <div className="mt-2.5">
           {paymentMethod === 'cash' && (
-            <div className="bg-white rounded-xl p-3.5 border border-[#42201D]/10 text-xs text-[#42201D]/85 leading-relaxed">
-              <p className="font-bold text-[#781B19] mb-1">Tunai (Cash)</p>
+            <div className="bg-[#FFFFFF] rounded-xl p-3.5 border border-black/10 text-xs text-[#000000]/80 leading-relaxed">
+              <p className="font-bold text-[#8A1C05] mb-1">Tunai (Cash)</p>
               <p>
                 Bayar langsung di kasir restoran (saat Ambil Sendiri) atau
                 serahkan kepada kurir pengantar saat pesanan tiba.
@@ -275,8 +275,8 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
           )}
 
           {paymentMethod === 'transfer' && (
-            <div className="bg-white rounded-xl p-3.5 border border-[#42201D]/10 space-y-2.5">
-              <p className="text-xs font-bold text-[#781B19]">
+            <div className="bg-[#FFFFFF] rounded-xl p-3.5 border border-black/10 space-y-2.5">
+              <p className="text-xs font-bold text-[#8A1C05]">
                 Transfer Bank · Rekening Resmi
               </p>
               <div className="space-y-2">
@@ -285,16 +285,16 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
                   return (
                     <div
                       key={bank.id}
-                      className="flex items-center justify-between gap-2 bg-[#FFF8EA] rounded-lg px-3 py-2 border border-[#42201D]/10"
+                      className="flex items-center justify-between gap-2 bg-black/[0.03] rounded-lg px-3 py-2 border border-black/10"
                     >
                       <div className="min-w-0">
-                        <p className="text-xs font-bold text-[#42201D]">
+                        <p className="text-xs font-bold text-[#000000]">
                           {bank.bankName}
                         </p>
-                        <p className="text-xs font-bold text-[#781B19] tabular-nums">
+                        <p className="text-xs font-bold text-[#8A1C05] tabular-nums">
                           {bank.accountNumber}
                         </p>
-                        <p className="text-[11px] text-[#42201D]/70">
+                        <p className="text-[11px] text-[#000000]/70">
                           a.n. {bank.accountHolder}
                         </p>
                       </div>
@@ -303,12 +303,12 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
                         onClick={() =>
                           handleCopyAccount(bank.id, bank.rawNumber)
                         }
-                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-white hover:bg-[#F4C343]/30 border border-[#42201D]/15 text-[11px] font-bold text-[#42201D] transition-colors cursor-pointer whitespace-nowrap shrink-0"
+                        className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-[#FFFFFF] hover:bg-[#E3BD32]/30 border border-black/15 text-[11px] font-bold text-[#000000] transition-colors cursor-pointer whitespace-nowrap shrink-0"
                       >
                         {isCopied ? (
                           <>
                             <Check
-                              className="w-3 h-3 text-[#781B19]"
+                              className="w-3 h-3 text-[#8A1C05]"
                               aria-hidden="true"
                             />
                             <span>Tersalin</span>
@@ -324,7 +324,7 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
                   );
                 })}
               </div>
-              <p className="text-[11px] text-[#42201D]/70 leading-relaxed">
+              <p className="text-[11px] text-[#000000]/70 leading-relaxed">
                 Lampirkan bukti transfer saat mengirim pesanan ke WhatsApp admin
                 untuk percepatan konfirmasi.
               </p>
@@ -332,28 +332,28 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
           )}
 
           {paymentMethod === 'qris' && (
-            <div className="bg-white rounded-xl p-4 border border-[#42201D]/10 text-center space-y-2.5">
-              <div className="flex items-center justify-between text-xs border-b border-[#42201D]/10 pb-2">
-                <span className="font-display font-extrabold tracking-wide text-[#781B19]">
+            <div className="bg-[#FFFFFF] rounded-xl p-4 border border-black/10 text-center space-y-2.5">
+              <div className="flex items-center justify-between text-xs border-b border-black/10 pb-2">
+                <span className="font-display font-extrabold tracking-wide text-[#8A1C05]">
                   QRIS Standar Nasional
                 </span>
-                <span className="font-bold text-[#42201D]">RAKATA</span>
+                <span className="font-bold text-[#000000]">RAKATA</span>
               </div>
 
-              <div className="p-2 bg-white inline-block rounded-lg border border-[#42201D]/10">
+              <div className="p-2 bg-[#FFFFFF] inline-block rounded-lg border border-black/10">
                 <QrisBarcodeSvg />
               </div>
 
-              <div className="bg-[#FFF8EA] rounded-lg py-2 px-3 border border-[#42201D]/10">
-                <p className="text-[11px] text-[#42201D]/70">
+              <div className="bg-black/[0.03] rounded-lg py-2 px-3 border border-black/10">
+                <p className="text-[11px] text-[#000000]/70">
                   Total Pembayaran Dinamis
                 </p>
-                <p className="font-display text-base font-extrabold text-[#781B19] tabular-nums">
+                <p className="font-display text-base font-extrabold text-[#8A1C05] tabular-nums">
                   {formatIDR(totalPrice)}
                 </p>
               </div>
 
-              <p className="text-[11px] text-[#42201D]/75 leading-relaxed">
+              <p className="text-[11px] text-[#000000]/75 leading-relaxed">
                 Scan menggunakan GoPay · OVO · DANA · ShopeePay · BCA Mobile ·
                 Livin&apos; by Mandiri · aplikasi mobile banking lainnya.
               </p>
@@ -367,7 +367,7 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
         <div>
           <label
             htmlFor="rakata-customer-name"
-            className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+            className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
           >
             Nama Pemesan <span aria-hidden="true">*</span>
           </label>
@@ -380,10 +380,10 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
               if (e.target.value.trim()) setNameError('');
             }}
             placeholder="Contoh: Budi Santoso"
-            className="w-full px-3.5 py-2.5 rounded-lg bg-white border border-[#42201D]/20 text-sm text-[#42201D] placeholder:text-[#42201D]/45 focus:outline-none focus:ring-2 focus:ring-[#781B19]"
+            className="w-full px-3.5 py-2.5 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm text-[#000000] placeholder:text-[#000000]/45 focus:outline-none focus:ring-2 focus:ring-[#8A1C05]"
           />
           {nameError && (
-            <p className="mt-1 text-xs font-semibold text-[#781B19]" role="alert">
+            <p className="mt-1 text-xs font-semibold text-[#8A1C05]" role="alert">
               {nameError}
             </p>
           )}
@@ -392,7 +392,7 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
         <div>
           <label
             htmlFor="rakata-order-notes"
-            className="block text-xs font-bold uppercase tracking-wider text-[#781B19] mb-1.5"
+            className="block text-xs font-bold uppercase tracking-wider text-[#8A1C05] mb-1.5"
           >
             Catatan Pesanan (Opsional)
           </label>
@@ -402,7 +402,7 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
             value={orderNotes}
             onChange={(e) => setOrderNotes(e.target.value)}
             placeholder="Contoh: Saus dipisah, ambil jam 12.30..."
-            className="w-full px-3.5 py-2 rounded-lg bg-white border border-[#42201D]/20 text-sm text-[#42201D] placeholder:text-[#42201D]/45 focus:outline-none focus:ring-2 focus:ring-[#781B19] resize-none"
+            className="w-full px-3.5 py-2 rounded-lg bg-[#FFFFFF] border border-black/20 text-sm text-[#000000] placeholder:text-[#000000]/45 focus:outline-none focus:ring-2 focus:ring-[#8A1C05] resize-none"
           />
         </div>
       </div>
@@ -414,10 +414,10 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-[#781B19] hover:bg-[#541412] text-white font-bold text-sm transition-colors"
+            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-[#8A1C05] hover:bg-[#000000] text-[#FFFFFF] font-bold text-sm transition-colors"
           >
             <MessageCircle
-              className="w-4 h-4 text-[#F4C343] shrink-0"
+              className="w-4 h-4 text-[#E3BD32] shrink-0"
               aria-hidden="true"
             />
             <span>Checkout via WhatsApp</span>
@@ -426,10 +426,10 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
           <button
             type="button"
             onClick={handleInvalidClick}
-            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-[#781B19] hover:bg-[#541412] text-white font-bold text-sm transition-colors cursor-pointer"
+            className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-lg bg-[#8A1C05] hover:bg-[#000000] text-[#FFFFFF] font-bold text-sm transition-colors cursor-pointer"
           >
             <MessageCircle
-              className="w-4 h-4 text-[#F4C343] shrink-0"
+              className="w-4 h-4 text-[#E3BD32] shrink-0"
               aria-hidden="true"
             />
             <span>Checkout via WhatsApp</span>
@@ -439,11 +439,11 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
         <button
           type="button"
           onClick={handleCopyMessage}
-          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-[#42201D]/20 bg-white hover:bg-[#FFF8EA] text-[#42201D] font-semibold text-xs transition-colors cursor-pointer"
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-black/20 bg-[#FFFFFF] hover:bg-black/[0.04] text-[#000000] font-semibold text-xs transition-colors cursor-pointer"
         >
           {copied ? (
             <>
-              <Check className="w-3.5 h-3.5 text-[#781B19]" aria-hidden="true" />
+              <Check className="w-3.5 h-3.5 text-[#8A1C05]" aria-hidden="true" />
               <span>Format Pesanan Tersalin</span>
             </>
           ) : (
@@ -479,7 +479,7 @@ export function Checkout({ items, totalPrice }: CheckoutProps) {
             setRecordedToLedger(true);
             window.setTimeout(() => setRecordedToLedger(false), 3000);
           }}
-          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-[#781B19] hover:bg-[#781B19]/10 font-semibold text-xs transition-colors cursor-pointer"
+          className="w-full inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-[#8A1C05] hover:bg-[#8A1C05]/10 font-semibold text-xs transition-colors cursor-pointer"
         >
           {recordedToLedger ? (
             <>
