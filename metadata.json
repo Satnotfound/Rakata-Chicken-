@@ -1,0 +1,6 @@
+{
+  "name": "RAKATA – Chicken and Potato",
+  "description": "Crispy bites, authentic flavors! Order Ayam Gunting, Kentang Goreng, Kentang Spiral, and Nusantara-inspired packages online from RAKATA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

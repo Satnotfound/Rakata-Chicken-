@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Times New Roman", system-ui, -apple-system, sans-serif;
+  --font-sans: "arial", system-ui, -apple-system, sans-serif;
+
+  --color-rakata-maroon: #781B19;
+  --color-rakata-dark-maroon: #541412;
+  --color-rakata-gold: #F4C343;
+  --color-rakata-cream: #FFF8EA;
+  --color-rakata-brown: #42201D;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
