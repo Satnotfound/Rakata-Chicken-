@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   ArrowDownLeft,
   ArrowLeft,
@@ -9,6 +9,8 @@ import {
   Edit3,
   Landmark,
   Lock,
+  LogIn,
+  LogOut,
   Plus,
   QrCode,
   RotateCcw,
@@ -20,6 +22,7 @@ import {
   X,
 } from 'lucide-react';
 import { formatIDR } from '../config/brand';
+import { useAuth } from '../context/AuthContext';
 import { useFinance } from '../context/FinanceContext';
 import {
   EXPENSE_CATEGORIES,
@@ -70,7 +73,18 @@ export function OwnerFinanceDashboard({
   onBackToStorefront,
 }: OwnerFinanceDashboardProps) {
   const {
+    user,
+    authReady,
+    isVerifiedUser,
+    authBusy,
+    authError,
+    signInWithGoogle,
+    signOutUser,
+  } = useAuth();
+
+  const {
     entries,
+    loading,
     ownerPin,
     addEntry,
     updateEntry,
@@ -82,9 +96,15 @@ export function OwnerFinanceDashboard({
   } = useFinance();
 
   // Optional PIN lock state (if owner set a PIN, require unlock on mount)
-  const [isUnlocked, setIsUnlocked] = useState<boolean>(() => !ownerPin);
+  const [pinVerified, setPinVerified] = useState<boolean>(false);
   const [pinAttempt, setPinAttempt] = useState('');
   const [pinError, setPinError] = useState('');
+
+  useEffect(() => {
+    if (!ownerPin) {
+      setPinVerified(true);
+    }
+  }, [ownerPin]);
 
   // PIN Settings modal state
   const [isPinModalOpen, setIsPinModalOpen] = useState(false);
@@ -439,7 +459,7 @@ export function OwnerFinanceDashboard({
   const handleUnlockPin = (e: React.FormEvent) => {
     e.preventDefault();
     if (pinAttempt === ownerPin) {
-      setIsUnlocked(true);
+      setPinVerified(true);
       setPinAttempt('');
       setPinError('');
     } else {
@@ -454,13 +474,104 @@ export function OwnerFinanceDashboard({
       return;
     }
     setOwnerPin(newPinInput);
+    setPinVerified(true);
     setNewPinInput('');
     setPinSettingError('');
     setIsPinModalOpen(false);
     showNotice('PIN keamanan Owner berhasil diaktifkan.');
   };
 
-  if (!isUnlocked && ownerPin) {
+  if (!authReady) {
+    return (
+      <div className="min-h-screen bg-black/[0.03] text-[#000000] flex flex-col">
+        <header className="bg-[#000000] text-[#FFFFFF] border-b border-white/15">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <div className="inline-flex items-center gap-2.5">
+              <RakataChickenLogo className="w-9 h-6" />
+              <span className="font-display text-lg font-extrabold text-[#E3BD32]">
+                RAKATA · Pembukuan Owner
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={onBackToStorefront}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#FFFFFF] hover:text-[#E3BD32] cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+              <span>Kembali ke Toko</span>
+            </button>
+          </div>
+        </header>
+        <main className="flex-1 flex items-center justify-center p-6">
+          <p className="text-sm font-semibold text-[#000000]/70">
+            Memuat sesi Owner...
+          </p>
+        </main>
+      </div>
+    );
+  }
+
+  if (!isVerifiedUser) {
+    return (
+      <div className="min-h-screen bg-black/[0.03] text-[#000000] flex flex-col">
+        <header className="bg-[#000000] text-[#FFFFFF] border-b border-white/15">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <div className="inline-flex items-center gap-2.5">
+              <RakataChickenLogo className="w-9 h-6" />
+              <span className="font-display text-lg font-extrabold text-[#E3BD32]">
+                RAKATA · Pembukuan Owner
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={onBackToStorefront}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#FFFFFF] hover:text-[#E3BD32] cursor-pointer"
+            >
+              <ArrowLeft className="w-4 h-4" aria-hidden="true" />
+              <span>Kembali ke Toko</span>
+            </button>
+          </div>
+        </header>
+
+        <main className="flex-1 flex items-center justify-center p-4">
+          <div className="w-full max-w-sm bg-[#FFFFFF] rounded-2xl p-6 border border-black/10 shadow-sm space-y-5">
+            <div className="w-11 h-11 rounded-xl bg-[#8A1C05] text-[#E3BD32] flex items-center justify-center">
+              <BookOpen className="w-5 h-5" aria-hidden="true" />
+            </div>
+            <div>
+              <h1 className="font-display text-xl font-bold text-[#000000]">
+                Masuk Pembukuan Owner
+              </h1>
+              <p className="text-sm text-[#000000]/75 mt-1 leading-relaxed">
+                Masuk menggunakan akun Google untuk mengelola catatan pemasukan,
+                pengeluaran, dan laporan keuangan RAKATA.
+              </p>
+            </div>
+
+            {authError && (
+              <p className="text-xs font-semibold text-[#DC2626]" role="alert">
+                {authError}
+              </p>
+            )}
+
+            <button
+              type="button"
+              disabled={authBusy}
+              onClick={() => void signInWithGoogle()}
+              className="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-[#E3BD32] hover:brightness-95 disabled:opacity-60 text-[#000000] font-bold text-sm transition-all cursor-pointer"
+            >
+              <LogIn className="w-4 h-4" aria-hidden="true" />
+              <span>
+                {authBusy ? 'Menghubungkan...' : 'Masuk dengan Google'}
+              </span>
+            </button>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  if (!pinVerified && ownerPin) {
     return (
       <div className="min-h-screen bg-black/[0.03] text-[#000000] flex flex-col">
         <header className="bg-[#000000] text-[#FFFFFF] border-b border-white/15">
@@ -568,6 +679,12 @@ export function OwnerFinanceDashboard({
           </div>
 
           <div className="flex items-center gap-2 shrink-0">
+            {user?.email && (
+              <span className="hidden md:inline-block text-xs text-[#FFFFFF]/75 truncate max-w-[180px] pr-1">
+                {user.email}
+              </span>
+            )}
+
             <button
               type="button"
               onClick={() => setIsPinModalOpen(true)}
@@ -591,6 +708,17 @@ export function OwnerFinanceDashboard({
             >
               <Plus className="w-4 h-4 shrink-0" aria-hidden="true" />
               <span>Catat Transaksi</span>
+            </button>
+
+            <button
+              type="button"
+              disabled={authBusy}
+              onClick={() => void signOutUser()}
+              title="Keluar akun Google"
+              className="inline-flex items-center gap-1.5 px-2.5 py-2 rounded-lg border border-white/25 text-xs font-semibold text-[#FFFFFF] hover:bg-white/10 transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+            >
+              <LogOut className="w-3.5 h-3.5" aria-hidden="true" />
+              <span className="hidden lg:inline">Keluar</span>
             </button>
           </div>
         </div>
@@ -1001,7 +1129,13 @@ export function OwnerFinanceDashboard({
           </div>
 
           {/* Empty State vs Populated Table */}
-          {filteredEntries.length === 0 ? (
+          {loading ? (
+            <div className="p-10 text-center">
+              <p className="text-sm font-semibold text-[#000000]/70">
+                Memuat catatan keuangan...
+              </p>
+            </div>
+          ) : filteredEntries.length === 0 ? (
             <div className="p-10 text-center space-y-4">
               <div className="w-12 h-12 rounded-xl bg-black/[0.04] text-[#8A1C05] mx-auto flex items-center justify-center">
                 <BookOpen className="w-6 h-6" aria-hidden="true" />

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { CheckCircle2, ShoppingBag, X } from 'lucide-react';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { Menu } from './components/Menu';
@@ -14,6 +15,7 @@ import {
   type CustomizerTarget,
 } from './components/ToppingSelector';
 import { WhyChoose } from './components/WhyChoose';
+import { AuthProvider } from './context/AuthContext';
 import { CartProvider, useCart } from './context/CartContext';
 import { FinanceProvider } from './context/FinanceContext';
 import type { MenuProduct, PackageItem } from './types/rakata';
@@ -154,14 +156,18 @@ export default function App() {
   };
 
   return (
-    <FinanceProvider>
-      <CartProvider>
-        {viewMode === 'owner' ? (
-          <OwnerFinanceDashboard onBackToStorefront={backToStorefront} />
-        ) : (
-          <RakataStorefront onOpenOwnerPortal={openOwnerPortal} />
-        )}
-      </CartProvider>
-    </FinanceProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <FinanceProvider>
+          <CartProvider>
+            {viewMode === 'owner' ? (
+              <OwnerFinanceDashboard onBackToStorefront={backToStorefront} />
+            ) : (
+              <RakataStorefront onOpenOwnerPortal={openOwnerPortal} />
+            )}
+          </CartProvider>
+        </FinanceProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   );
 }
